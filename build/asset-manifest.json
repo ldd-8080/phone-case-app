@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.js": "/phone-case-app/static/js/main.b3d5e994.js",
+    "main.js": "/phone-case-app/static/js/main.61635ca5.js",
+    "static/media/4199672x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/4199672x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.1c2dda6f86edb4d66202.jpg",
     "index.html": "/phone-case-app/index.html",
-    "main.b3d5e994.js.map": "/phone-case-app/static/js/main.b3d5e994.js.map"
+    "main.61635ca5.js.map": "/phone-case-app/static/js/main.61635ca5.js.map"
   },
   "entrypoints": [
-    "static/js/main.b3d5e994.js"
+    "static/js/main.61635ca5.js"
   ]
 }
