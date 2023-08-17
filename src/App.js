@@ -34,6 +34,7 @@ function App() {
     "./assets/img/29157953x2_iphone-14-pro__color_black_16004733.png.1000x1000-w.m80.jpg",
     "./assets/img/29370906x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg",
     "./assets/img/29381853x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg",
+    "./assets/img/27679237x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg",
   ];
   return (
     <Wrapper>
