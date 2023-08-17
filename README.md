@@ -10,5 +10,6 @@ copy build/index.html build/404.html
 ```
 git add .
 git commit -m 'commit message'
-git push origin
+git push origin main
+git subtree push --prefix build/ origin gh-pages
 ```
