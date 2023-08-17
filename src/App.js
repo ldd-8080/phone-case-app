@@ -38,6 +38,7 @@ function App() {
   ];
   return (
     <Wrapper>
+      테스트1
       {imgList.map((s, i) => {
         return (
           <div>
