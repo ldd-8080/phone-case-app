@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const ImgBox = styled.img`
   width: 400px;
@@ -19,6 +20,10 @@ const Num = styled.div`
   text-align: center;
 `;
 
+const CameraInput = styled.input`
+  display: none;
+`;
+
 function App() {
   const imgList = [
     "./assets/img/4199672x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg",
@@ -36,8 +41,29 @@ function App() {
     "./assets/img/29381853x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg",
     "./assets/img/27679237x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg",
   ];
+
+  const [fileName, setFileName] = useState("Default");
+
+  const imageOnChange = (e) => {
+    console.log(e);
+    console.log("image : ", e.target.files[0]);
+    setFileName(e.target.files[0].name);
+  };
+
   return (
     <Wrapper>
+      <CameraInput
+        id="camera"
+        type="file"
+        capture="camera"
+        onChange={imageOnChange}
+      />
+      <input
+        type="button"
+        value="카메라열기"
+        onClick={() => document.getElementById("camera").click()}
+      />
+      <div>{fileName}</div>
       {imgList.map((s, i) => {
         return (
           <div>
