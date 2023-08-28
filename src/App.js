@@ -51,6 +51,7 @@ function App() {
   const [recogText, setRecogText] = useState("");
 
   const imageOnChange = (e) => {
+    console.log("image On Change");
     const $target = e.target;
     const imageFile = $target.files[0];
 
@@ -60,7 +61,10 @@ function App() {
       setFileName(imageFile.name);
 
       Tesseract.recognize(imageFile, "eng+kor", {
-        logger: (m) => console.log("logger: ", m),
+        logger: (m) => {
+          console.log("logger: ", m);
+          setRecogText(m.status);
+        },
       }).then(({ data: { text } }) => {
         console.log("result: ", text);
         setRecogText(text);
@@ -81,8 +85,13 @@ function App() {
         value="카메라열기"
         onClick={() => document.getElementById("camera").click()}
       />
-      <TextDiv>파일명 : {fileName}</TextDiv>
-      <TextDiv>추출된 텍스트 : {recogText}</TextDiv>
+      <TextDiv>
+        <b>파일명 :</b> {fileName}
+      </TextDiv>
+      <TextDiv>
+        <b>추출된 텍스트 :</b>
+        <br /> {recogText}
+      </TextDiv>
       {imgList.map((s, i) => {
         return (
           <div>
