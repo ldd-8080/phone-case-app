@@ -33,6 +33,29 @@ const Divider = styled.hr`
   width: 100%;
 `;
 
+const Video = styled.video`
+  border: 1px solid;
+  width: 300px;
+`;
+
+const VideoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const VideoContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+`;
+
+const CaptureBtn = styled.button`
+  background: #fff;
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+`;
+
 function App() {
   const imgList = [
     "./assets/img/4199672x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg",
@@ -80,7 +103,11 @@ function App() {
     try {
       console.log("start getMedia");
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: true,
+        video: {
+          facingMode: {
+            exact: "environment",
+          },
+        },
       });
       const video = document.getElementById("video");
       video.srcObject = stream;
@@ -89,6 +116,10 @@ function App() {
     } catch (e) {
       console.log(e);
     }
+  };
+
+  const onButtonClick = () => {
+    console.log("button click");
   };
 
   useEffect(() => {
@@ -115,9 +146,16 @@ function App() {
         <b>추출된 텍스트 :</b>
         <br /> {recogText}
       </TextDiv>
+
       <Divider />
-      <input type="button" value="카메라 연결" onClick={() => getMedia()} />
-      <video id="video" autoPlay playsInline></video>
+
+      <VideoWrapper>
+        <input type="button" value="카메라 연결" onClick={() => getMedia()} />
+        <VideoContainer>
+          <Video id="video" autoPlay playsInline></Video>
+          <CaptureBtn type="button" onClick={onButtonClick}></CaptureBtn>
+        </VideoContainer>
+      </VideoWrapper>
       {/* {imgList.map((s, i) => {
         return (
           <div>
