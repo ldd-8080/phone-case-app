@@ -117,7 +117,7 @@ function App() {
       </TextDiv>
       <Divider />
       <input type="button" value="카메라 연결" onClick={() => getMedia()} />
-      <video id="video"></video>
+      <video id="video" autoPlay playsInline></video>
       {/* {imgList.map((s, i) => {
         return (
           <div>
