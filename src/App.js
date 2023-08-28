@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Tesseract from "tesseract.js";
 
 const ImgBox = styled.img`
@@ -26,6 +26,10 @@ const CameraInput = styled.input`
 `;
 
 const TextDiv = styled.div`
+  width: 100%;
+`;
+
+const Divider = styled.hr`
   width: 100%;
 `;
 
@@ -72,6 +76,26 @@ function App() {
     }
   };
 
+  const getMedia = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        facingMode: {
+          exact: "environment",
+        },
+      });
+      const video = document.getElementById("video");
+      video.srcObject = stream;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    console.log("useEffect");
+    getMedia();
+  }, []);
+
   return (
     <Wrapper>
       <CameraInput
@@ -92,14 +116,16 @@ function App() {
         <b>추출된 텍스트 :</b>
         <br /> {recogText}
       </TextDiv>
-      {imgList.map((s, i) => {
+      <Divider />
+      <video id="video"></video>
+      {/* {imgList.map((s, i) => {
         return (
           <div>
             <Num>{i + 1}</Num>
             <ImgBox src={require("" + s)} />
           </div>
         );
-      })}
+      })} */}
     </Wrapper>
   );
 }
