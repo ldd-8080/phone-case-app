@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import Tesseract from "tesseract.js";
 
 const ImgBox = styled.img`
   width: 400px;
@@ -24,6 +25,10 @@ const CameraInput = styled.input`
   display: none;
 `;
 
+const TextDiv = styled.div`
+  width: 100%;
+`;
+
 function App() {
   const imgList = [
     "./assets/img/4199672x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg",
@@ -43,11 +48,24 @@ function App() {
   ];
 
   const [fileName, setFileName] = useState("Default");
+  const [recogText, setRecogText] = useState("");
 
   const imageOnChange = (e) => {
-    console.log(e);
-    console.log("image : ", e.target.files[0]);
-    setFileName(e.target.files[0].name);
+    const $target = e.target;
+    const imageFile = $target.files[0];
+
+    if (imageFile) {
+      console.log(e);
+      console.log("image : ", imageFile);
+      setFileName(imageFile.name);
+
+      Tesseract.recognize(imageFile, "eng+kor", {
+        logger: (m) => console.log("logger: ", m),
+      }).then(({ data: { text } }) => {
+        console.log("result: ", text);
+        setRecogText(text);
+      });
+    }
   };
 
   return (
@@ -63,7 +81,8 @@ function App() {
         value="카메라열기"
         onClick={() => document.getElementById("camera").click()}
       />
-      <div>{fileName}</div>
+      <TextDiv>파일명 : {fileName}</TextDiv>
+      <TextDiv>추출된 텍스트 : {recogText}</TextDiv>
       {imgList.map((s, i) => {
         return (
           <div>
