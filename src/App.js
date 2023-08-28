@@ -79,13 +79,15 @@ function App() {
   const getMedia = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        facingMode: {
-          exact: "environment",
+        video: {
+          facingMode: {
+            exact: "environment",
+          },
         },
       });
       const video = document.getElementById("video");
       video.srcObject = stream;
+      video.play();
     } catch (e) {
       console.log(e);
     }
