@@ -78,12 +78,14 @@ function App() {
 
   const getMedia = async () => {
     try {
+      console.log("start getMedia");
       const stream = await navigator.mediaDevices.getUserMedia({
         video: true,
       });
       const video = document.getElementById("video");
       video.srcObject = stream;
       video.play();
+      console.log("end getMedia");
     } catch (e) {
       console.log(e);
     }
@@ -91,7 +93,6 @@ function App() {
 
   useEffect(() => {
     console.log("useEffect");
-    getMedia();
   }, []);
 
   return (
@@ -115,6 +116,7 @@ function App() {
         <br /> {recogText}
       </TextDiv>
       <Divider />
+      <input type="button" value="카메라 연결" onClick={() => getMedia()} />
       <video id="video"></video>
       {/* {imgList.map((s, i) => {
         return (
