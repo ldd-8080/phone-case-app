@@ -1,24 +1,10 @@
 {
   "files": {
-    "main.js": "/phone-case-app/static/js/main.a7e611df.js",
-    "static/media/27679237x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/27679237x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.b3869777101b0306a51b.jpg",
-    "static/media/29157953x2_iphone-14-pro__color_black_16004733.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/29157953x2_iphone-14-pro__color_black_16004733.png.1000x1000-w.m80.e3628998c159100ba285.jpg",
-    "static/media/27259508x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/27259508x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.6bd486d24887af06e0d1.jpg",
-    "static/media/25836840x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/25836840x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.17c1c25e84993976bedb.jpg",
-    "static/media/4199672x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/4199672x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.1c2dda6f86edb4d66202.jpg",
-    "static/media/19078188x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/19078188x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.d1cc9dc41a9f2ff5af8d.jpg",
-    "static/media/29381853x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/29381853x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.82266542acd7d006af24.jpg",
-    "static/media/28300096x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/28300096x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.19d0af4471669b69068e.jpg",
-    "static/media/28639105x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/28639105x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.6a23f2da5518d9bdd834.jpg",
-    "static/media/25898253x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/25898253x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.479eead14fd1d3e8e593.jpg",
-    "static/media/22428796x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/22428796x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.dd644a6a879f9a7d26a0.jpg",
-    "static/media/22277757x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/22277757x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.e5cc0cb46cdaa23a81d0.jpg",
-    "static/media/29370906x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/29370906x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.3645061814bc2476b0af.jpg",
-    "static/media/28650736x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.jpg": "/phone-case-app/static/media/28650736x2_iphone-14-pro__color_black_16004813.png.1000x1000-w.m80.28a3f997aec2440afb18.jpg",
+    "main.js": "/phone-case-app/static/js/main.599fd4fc.js",
     "index.html": "/phone-case-app/index.html",
-    "main.a7e611df.js.map": "/phone-case-app/static/js/main.a7e611df.js.map"
+    "main.599fd4fc.js.map": "/phone-case-app/static/js/main.599fd4fc.js.map"
   },
   "entrypoints": [
-    "static/js/main.a7e611df.js"
+    "static/js/main.599fd4fc.js"
   ]
 }
