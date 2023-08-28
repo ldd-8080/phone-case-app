@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/phone-case-app/static/js/main.65509fca.js",
+    "main.js": "/phone-case-app/static/js/main.217f6237.js",
     "index.html": "/phone-case-app/index.html",
-    "main.65509fca.js.map": "/phone-case-app/static/js/main.65509fca.js.map"
+    "main.217f6237.js.map": "/phone-case-app/static/js/main.217f6237.js.map"
   },
   "entrypoints": [
-    "static/js/main.65509fca.js"
+    "static/js/main.217f6237.js"
   ]
 }
