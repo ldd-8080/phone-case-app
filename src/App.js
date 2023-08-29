@@ -103,7 +103,7 @@ function App() {
     }
   };
 
-  let imageCapture;
+  var imageCapture;
 
   const getMedia = async () => {
     try {
@@ -133,6 +133,8 @@ function App() {
       .takePhoto()
       .then(function (blob) {
         console.log("took photo : ", blob);
+        const div = document.getElementById("testText");
+        div.innerHTML += blob;
         const img = document.getElementById("capturedImg");
         img.src = URL.createObjectURL(blob);
       })
@@ -175,8 +177,9 @@ function App() {
 
         <Divider />
 
-        <TextDiv>
-          <b>캡쳐된 이미지</b>
+        {imageCapture ?? <TextDiv>{imageCapture}</TextDiv>}
+        <TextDiv id="testText">
+          <b>캡쳐된 이미지 : </b>
         </TextDiv>
         <img id="capturedImg" src="" alt="" style={{ border: "1px solid" }} />
       </VideoWrapper>
