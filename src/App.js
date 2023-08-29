@@ -80,6 +80,7 @@ function App() {
 
   const [fileName, setFileName] = useState("Default");
   const [recogText, setRecogText] = useState("");
+  const [progressText, setProgressText] = useState("");
 
   const imageOnChange = (e) => {
     console.log("image On Change");
@@ -103,11 +104,13 @@ function App() {
     }
   };
 
-  var imageCapture;
+  var imageCapture = "1";
 
   const getMedia = async () => {
     try {
       console.log("start getMedia");
+      setProgressText("start getMedia");
+
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
           facingMode: {
@@ -116,12 +119,21 @@ function App() {
         },
       });
 
+      setProgressText("set video srcObject to stream");
       const video = document.getElementById("video");
       video.srcObject = stream;
+
       const track = stream.getVideoTracks()[0];
       imageCapture = new ImageCapture(track);
+      setProgressText(
+        "set imageCapture Constructor with track : " +
+          track +
+          ", imageCapture : " +
+          imageCapture
+      );
       video.play();
       console.log("end getMedia");
+      setProgressText("end getMedia");
     } catch (e) {
       console.log(e);
     }
@@ -129,10 +141,14 @@ function App() {
 
   const onButtonClick = () => {
     console.log("button click");
+    setProgressText("button Click");
+
     imageCapture
       .takePhoto()
       .then(function (blob) {
         console.log("took photo : ", blob);
+        setProgressText("took photo : " + blob);
+
         const div = document.getElementById("testText");
         div.innerHTML += blob;
         const img = document.getElementById("capturedImg");
@@ -177,10 +193,10 @@ function App() {
 
         <Divider />
 
-        {imageCapture ?? <TextDiv>{imageCapture}</TextDiv>}
-        <TextDiv id="testText">
-          <b>캡쳐된 이미지 : </b>
-        </TextDiv>
+        <b>진행상황 : </b>
+        <TextDiv id="progressText">{progressText}</TextDiv>
+        <b>캡쳐된 이미지 : </b>
+        <TextDiv id="testText"></TextDiv>
         <img id="capturedImg" src="" alt="" style={{ border: "1px solid" }} />
       </VideoWrapper>
       {/* {imgList.map((s, i) => {
