@@ -106,10 +106,17 @@ function App() {
 
   var imageCapture = "1";
 
+  const loggingProgressText = (text) => {
+    setProgressText((prev) => {
+      prev += "\n" + text;
+      return prev;
+    });
+  };
+
   const getMedia = async () => {
     try {
       console.log("start getMedia");
-      setProgressText("start getMedia");
+      loggingProgressText("start getMedia");
 
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
@@ -199,7 +206,9 @@ function App() {
         <Divider />
 
         <b>진행상황 : </b>
-        <TextDiv id="progressText">{progressText}</TextDiv>
+        <TextDiv id="progressText">
+          <pre>{progressText}</pre>
+        </TextDiv>
         <b>캡쳐된 이미지 : </b>
         <TextDiv id="testText"></TextDiv>
         <img id="capturedImg" src="" alt="" style={{ border: "1px solid" }} />
