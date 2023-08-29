@@ -35,15 +35,16 @@ const Divider = styled.hr`
 
 const Video = styled.video`
   border: 1px solid;
-  width: 300px;
 `;
 
 const VideoWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 const VideoContainer = styled.div`
+  width: 300px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -54,6 +55,9 @@ const CaptureBtn = styled.button`
   border-radius: 30px;
   width: 30px;
   height: 30px;
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 15px);
 `;
 
 function App() {
@@ -99,6 +103,8 @@ function App() {
     }
   };
 
+  let imageCapture;
+
   const getMedia = async () => {
     try {
       console.log("start getMedia");
@@ -109,8 +115,11 @@ function App() {
           },
         },
       });
+
       const video = document.getElementById("video");
       video.srcObject = stream;
+      const track = stream.getVideoTracks()[0];
+      imageCapture = new ImageCapture(track);
       video.play();
       console.log("end getMedia");
     } catch (e) {
@@ -120,6 +129,14 @@ function App() {
 
   const onButtonClick = () => {
     console.log("button click");
+    imageCapture
+      .takePhoto()
+      .then(function (blob) {
+        console.log("took photo : ", blob);
+        const img = document.getElementById("capturedImg");
+        img.src = URL.createObjectURL(blob);
+      })
+      .catch((e) => console.log("takePhoto() error : ", e));
   };
 
   useEffect(() => {
@@ -155,6 +172,13 @@ function App() {
           <Video id="video" autoPlay playsInline></Video>
           <CaptureBtn type="button" onClick={onButtonClick}></CaptureBtn>
         </VideoContainer>
+
+        <Divider />
+
+        <TextDiv>
+          <b>캡쳐된 이미지</b>
+        </TextDiv>
+        <img id="capturedImg" src="" alt="" style={{ border: "1px solid" }} />
       </VideoWrapper>
       {/* {imgList.map((s, i) => {
         return (
