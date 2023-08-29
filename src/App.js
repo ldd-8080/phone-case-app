@@ -123,14 +123,19 @@ function App() {
       const video = document.getElementById("video");
       video.srcObject = stream;
 
-      const track = stream.getVideoTracks()[0];
-      imageCapture = new ImageCapture(track);
-      setProgressText(
-        "set imageCapture Constructor with track : " +
-          track +
-          ", imageCapture : " +
-          imageCapture
-      );
+      try {
+        const track = stream.getVideoTracks()[0];
+        imageCapture = new ImageCapture(track);
+        setProgressText(
+          "set imageCapture Constructor with track : " +
+            track +
+            ", imageCapture : " +
+            imageCapture
+        );
+      } catch (e) {
+        setProgressText("impageCapture err : " + e);
+        console.log(e);
+      }
       video.play();
       console.log("end getMedia");
       setProgressText("end getMedia");
