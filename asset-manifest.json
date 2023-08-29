@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/phone-case-app/static/js/main.6346dfd1.js",
+    "main.js": "/phone-case-app/static/js/main.c6a4d9a8.js",
     "index.html": "/phone-case-app/index.html",
-    "main.6346dfd1.js.map": "/phone-case-app/static/js/main.6346dfd1.js.map"
+    "main.c6a4d9a8.js.map": "/phone-case-app/static/js/main.c6a4d9a8.js.map"
   },
   "entrypoints": [
-    "static/js/main.6346dfd1.js"
+    "static/js/main.c6a4d9a8.js"
   ]
 }
