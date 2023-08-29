@@ -126,26 +126,26 @@ function App() {
         },
       });
 
-      setProgressText("set video srcObject to stream");
+      loggingProgressText("set video srcObject to stream");
       const video = document.getElementById("video");
       video.srcObject = stream;
 
       try {
         const track = stream.getVideoTracks()[0];
         imageCapture = new ImageCapture(track);
-        setProgressText(
+        loggingProgressText(
           "set imageCapture Constructor with track : " +
             track +
             ", imageCapture : " +
             imageCapture
         );
       } catch (e) {
-        setProgressText("impageCapture err : " + e);
+        loggingProgressText("impageCapture err : " + e);
         console.log(e);
       }
       video.play();
       console.log("end getMedia");
-      setProgressText("end getMedia");
+      loggingProgressText("end getMedia");
     } catch (e) {
       console.log(e);
     }
@@ -153,13 +153,13 @@ function App() {
 
   const onButtonClick = () => {
     console.log("button click");
-    setProgressText("button Click");
+    loggingProgressText("button Click");
 
     imageCapture
       .takePhoto()
       .then(function (blob) {
         console.log("took photo : ", blob);
-        setProgressText("took photo : " + blob);
+        loggingProgressText("took photo : " + blob);
 
         const div = document.getElementById("testText");
         div.innerHTML += blob;
